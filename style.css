@@ -1,0 +1,26 @@
+body {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    height: 100%;
+    color:white;
+}
+body:before {
+    content: "";
+    position: absolute;
+    background: url('bg.jpg');
+    background-size: cover;
+    z-index: -1; /* Keep the background behind the content */
+    height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
+
+    /* don't forget to use the prefixes you need */
+    transform: scale(10);
+    transform-origin: top left;
+    filter: blur(500px);
+}
+#border-nav a{
+	color: white;
+	text-decoration: none;
+}
+#border-nav li{
+	display: inline;
+}
