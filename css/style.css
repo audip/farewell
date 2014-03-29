@@ -68,9 +68,9 @@ font-size:14px;
 .login a {
 	width:80px;
 	padding:5px 10px;
-	background:#ff0000;
+	background-color: rgba(255,0,0, 1.0);
 	float:right;
-	color:#fff;
+	color: #fff;
 	font-weight:bold;
 	font-size:12px;
 	text-align:center;
@@ -79,7 +79,7 @@ font-size:14px;
 .register a{
 	width:90px;
 	padding:5px 10px;
-	background:#000;
+	background-color:#000;
 	float:right;
 	color:#fff;
 	font-weight:bold;
@@ -516,7 +516,6 @@ ul#twitter_update_list li {
 	height:auto;
 }
 
-
 }
 
 /*  External Styling of Index */
@@ -525,4 +524,44 @@ ul#twitter_update_list li {
 }
 .bolder{
 	font-weight: 500;
+}
+.testimonials{
+	background-color: rgba(255,255,255, 0.7);
+	color: black;
+	height: 80%;
+	margin-top:20%;
+	margin-bottom: 30%;
+	width: 100%;
+}
+form{
+	padding: 50px 25px;
+	width: 100%;
+	margin-top: 20%;
+}
+label{
+	font-size: larger;
+	font-weight: bold;
+}
+input[type=submit] {
+	padding: 5px 10px;
+	color: white;
+	background-color: red;
+	border: 0px solid red;
+	margin: 20px 0px;
+	font-size: larger;
+}
+input[type=submit]:hover{
+	background-color: #e04747;
+	color:white
+}
+.link{
+	background-color:white;
+	padding: 5px 10px;
+	font-weight: bold;
+	font-size: 16px;
+	-webkit-transition: background-color 0.8s ease-out; 
+}
+.link:hover{
+	color:white;
+	background-color: red;
 }
