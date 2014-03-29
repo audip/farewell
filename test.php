@@ -1,7 +1,5 @@
 <?php
-
 include('header.php');
-
 ?>
 
 <div class="slider-wrap">
@@ -16,10 +14,22 @@ include('header.php');
 											<label for="name">Name</label>
 											<select name="name" id="name">
 													<?php
+													if(!isset($_SESSION['status']))
+{
+	echo 'PLEASE LOGIN!!!!!';
+	//header('location:index.php');
+}
+else
+{
+}
 
 require_once('connect.php');
 $s1="SELECT * FROM seniors";
 $r1=mysqli_query($con, $s1);
+if (!$r1) {
+  					printf("Error: %s\n", mysqli_error($con));
+    					exit();
+				}
 while($row=mysqli_fetch_array($r1))
 {
 	$sname=$row['name'];

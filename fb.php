@@ -2,8 +2,8 @@
 require_once('facebook.php');
 
 $facebook = new Facebook(array(
-  'appId' => '302979109716651',
-  'secret' => '4b69bf1ef5fc8c95712da40728c9eab3',
+  'appId' => '217734268424889',
+  'secret' => '6c785ba606ee50a7a29c171733ae911d',
   'cookie' => true,	
 ));
 
@@ -13,6 +13,7 @@ try{
 catch (FacebookApiException $e){
 	error_log($e);
 }
+$user_profile = $facebook->api('/me','GET');
 function getFacebookImageFromURL($url)
 {
   $headers = get_headers($url, 1);
@@ -37,11 +38,5 @@ $fbusername=strtolower($me['first_name']).'.'.strtolower($me['last_name']);
 $fbgender=ucfirst($me['gender']);
 $i++;
 }
-if($i==2)
-{
-	//header('location:reg.php');
-}
-
-
 ?>
       

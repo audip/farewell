@@ -33,7 +33,7 @@ include('header.php');
 			<div class="testimonials" >
 					<h2>Testimonials</h2>
 					<p class="bolder">
-									<form action="testimonial.php" method="POST">
+									<form action="testimonial.php" method="POST" style="margin-top: 0px;padding-top:5px">
 											<label for="name">Our Very Own</label>
 											<?php
 												require_once('connect.php');
@@ -61,7 +61,7 @@ include('header.php');
 													header('location:test.php');
 												}
 											?>	
-											<label for="test">Testimonial Message</label>
+											<label for="test">Testimonial Message (Please don't exceed 5000 Characters OR Mail to us the Testimonial at aditya@eclectika.org)</label>
 											<textarea rows="20" cols="30" required="required" name="test" id="test" maxlength="5000"  style="color:black;">
 											</textarea>
 										<input type="submit" name="submit" value="Submit Testimonial" />
