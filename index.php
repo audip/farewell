@@ -6,10 +6,10 @@ include('header.php');
 	<div class="row">
 	<!-- Slider content-->
 		<div class="flexslider eight columns">
-			<ul class="slides">
+			<ul class="slides" style="vertical-align: center">
 				<li><img src="demo/slides/slide1.png" alt="Aditya Purandare Farewell 1"/></li>
 				<li><img src="demo/slides/slide2.png" alt="Aditya Purandare Farewell 2"/></li>
-				<li><img src="demo/slides/slide2.png" alt="Aditya Purandare Farewell 3"/></li>
+				<li><img src="demo/slides/slide3.png" alt="Aditya Purandare Farewell 3" style="margin: auto"/></li>
 			</ul>
 		</div>
 		<!-- Slider content-->
