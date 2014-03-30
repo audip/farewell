@@ -1,26 +1,106 @@
 <?php
-include('header.php');
+session_start();
+ob_start();
 ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <title>Farewell 2014 | Goodbye Seniors</title><!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/foundation.css" />
+    <link rel="stylesheet" type="text/css" href="css/foundation-icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css" /><!-- GOOGLE WEBFONT-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' /><!-- FAVICON-->
+    <link rel="shortcut icon" href="images/favicon.ico" /><!-- //SCRIPTS -->
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js">
+</script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js">
+</script>
+    <script type="text/javascript" src="js/jquery.foundation.reveal.js">
+</script>
+    <script type="text/javascript" src="js/rotate.js">
+</script>
+    <script type="text/javascript" src="js/jquery.flexslider.js">
+</script>
+    <script type="text/javascript">
+//<![CDATA[
+    $(function(){
+        $('.flexslider').flexslider({
+        animation: "fade",
+        start: function(slider){
+        $('body').removeClass('loading');
+        }
+        });
+    });
+    //]]>
+    </script>
+</head>
+
+<body>
+    <!-- Modal Section -Login -->
+
+    <div id="loginform" class="reveal-modal">
+        <h3>Seniors Login</h3>
+
+        <p>Sign in Using Facebook. Please grant Permission when asked for.</p><!--    <div class="space20"></div>
+     -->
+
+        <form action="login.php" method="post">
+            <fieldset>
+                
+
+                <div class="fb-login-button" data-max-rows="3" data-size="xlarge" data-show-faces="true" data-auto-logout-link="true" ></div>
+            </fieldset>
+        </form><a class="close-reveal-modal"></a>
+    </div><!-- Modal Section -Login -->
+    
+    <!-- Header Section -->
+
+    <div id="header">
+        <div class="header-wrap row">
+            <div class="twelve columns">
+                <div class="logo">
+                    <h1><a href="index.php"><img src="images/logo.png" alt="" /></a></h1>
+                </div>
+                <div class="register">
+                    <a href="test.php">Testimonials</a>
+                </div>
+
+                <div class="login">
+                	   <i class="ft-home"></i>
+                    <a href="index.php">Home</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- Header Section -->
+
+    <div class="clear"></div>
 <!-- Slider section-->
 <div class="slider-wrap">
 	<div class="row">
 	<!-- Slider content-->
-		<div class="flexslider eight columns">
+		<!--
+<div class="flexslider eight columns">
 			<ul class="slides" style="vertical-align: center">
 				<li><img src="demo/slides/slide1.png" alt="Aditya Purandare Farewell 1"/></li>
 				<li><img src="demo/slides/slide2.png" alt="Aditya Purandare Farewell 2"/></li>
-				<li><img src="demo/slides/slide3.png" alt="Aditya Purandare Farewell 3" style="margin: auto"/></li>
+				<!-- <li><img src="demo/slides/slide3.png" alt="Aditya Purandare Farewell 3" style="margin: auto"/></li> 
 			</ul>
 		</div>
+-->
 		<!-- Slider content-->
 		<div class="four columns">
-			<div class="rsp-caption" >
+			<div class="rsp-caption" style="background-color:rgba(0,0,0,0.4);color:#555">
 					<h2>We will Miss You All!</h2>
 					<p style="font-weight:bold;padding-left:20px;">The time is near, tears will fall-off everybody's face, it will soon be the very last day of college but we want to make every moment special for you have been with us for 3 years and shared a bonding with each one of us.</p>
-					<p style="font-weight:bold;padding-left:20px;">		
-										Please LOGIN to Write a Testimonial
-					</p>
-					<p style="font-weight:bold;padding-left:20px;"> 
+										<p style="font-weight:bold;padding-left:20px;"> 
 						 <a href="test.php" class="link">Testimonials</a>
 					</p>
 			</div>
@@ -32,62 +112,3 @@ include('header.php');
 include('footer.php');
 ob_flush();
 ?>
-<script>
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '217734268424889',
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });
-
-  // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
-  // for any authentication related change, such as login, logout or session refresh. This means that
-  // whenever someone who was previously logged out tries to log in again, the correct case below 
-  // will be handled. 
-  FB.Event.subscribe('auth.authResponseChange', function(response) {
-    // Here we specify what we do with the response anytime this event occurs. 
-    if (response.status === 'connected') {
-      // The response object is returned with a status field that lets the app know the current
-      // login status of the person. In this case, we're handling the situation where they 
-      // have logged in to the app.
-      window.location="setup.php";
-      testAPI();
-    } else if (response.status === 'not_authorized') {
-      // In this case, the person is logged into Facebook, but not into the app, so we call
-      // FB.login() to prompt them to do so. 
-      // In real-life usage, you wouldn't want to immediately prompt someone to login 
-      // like this, for two reasons:
-      // (1) JavaScript created popup windows are blocked by most browsers unless they 
-      // result from direct interaction from people using the app (such as a mouse click)
-      // (2) it is a bad experience to be continually prompted to login upon page load.
-      FB.login();
-    } else {
-      // In this case, the person is not logged into Facebook, so we call the login() 
-      // function to prompt them to do so. Note that at this stage there is no indication
-      // of whether they are logged into the app. If they aren't then they'll see the Login
-      // dialog right after they log in to Facebook. 
-      // The same caveats as above apply to the FB.login() call here.
-      FB.login();
-    }
-  });
-  };
-
-  // Load the SDK asynchronously
-  (function(d){
-   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement('script'); js.id = id; js.async = true;
-   js.src = "//connect.facebook.net/en_US/all.js";
-   ref.parentNode.insertBefore(js, ref);
-  }(document));
-
-  // Here we run a very simple test of the Graph API after login is successful. 
-  // This testAPI() function is only called in those cases. 
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');
-    });
-  }
-</script>

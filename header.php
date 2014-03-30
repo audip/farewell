@@ -100,7 +100,7 @@ Modal Section -Register -->
                                     echo '<div class="login"><a href="logout.php">Logout</a></div>';
                                 else
                 */
-                echo '<div class="login"><a href="#" data-reveal-id="loginform"><i class="foundicon1-unlock login-ico"></i>Login</a></div>';
+                //echo '<div class="login"><a href="#" data-reveal-id="loginform"><i class="foundicon1-unlock login-ico"></i>Login</a></div>';
                 ?>
 
                 <div class="register">
