@@ -157,7 +157,7 @@ while($row=mysqli_fetch_array($r1))
 										
 										?>	
 										<input type="submit" name="submit" value="Write A Testimonial"/>
-										<h6>For a Detailed Testimonial Scoresheet, CLICK HERE</h6>
+										<h6>For a Detailed Testimonial Scoresheet, <a href="scoresheet.php" target="_blank">CLICK HERE</a></h6>
 									</form>
 </div>
 <div width="40%" style="float:left">
@@ -169,10 +169,17 @@ while($row=mysqli_fetch_array($r1))
 		</tr>
 		<tr>
 			<?php
-					$s6="SELECT * FROM seniors WHERE test0 <> 0";
-					
-					echo '<td></td>
-						        <td></td>';
+					$s6="SELECT * FROM seniors ORDER BY score DESC";
+					$r6=mysqli_query($con, $s6);
+					$count=1;
+					while(($row=mysqli_fetch_array($r6)) && ($count<=20))
+					{
+						echo '<tr>
+										<td>'.$row['name'].'</td>
+						        			<td>'.$row['score'].'</td>
+						        		</tr>';
+						        		$count++;
+					}
 			?>
 		</tr>
 </table>

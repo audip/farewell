@@ -102,8 +102,8 @@ Modal Section -Register -->
                 */
                 //echo '<div class="login"><a href="#" data-reveal-id="loginform"><i class="foundicon1-unlock login-ico"></i>Login</a></div>';
                 ?>
-
-                <div class="login">
+				
+                <div class="login" style="padding-right:25px;">
                     <a href="test.php" style="
     border-right-width: 10px;
     height: 30px;
@@ -120,76 +120,42 @@ Modal Section -Register -->
         </div>
     </div><!-- Header Section -->
 
-    <div class="clear"></div><?php
-require_once('connect.php');
-if(isset($_POST['name'])&&isset($_POST['test']) &&isset($_POST['username']) && ($_POST['submit']=='Submit Testimonial'))
-	{ 
-		$name=$_POST['name'];
-		$message=mysqli_real_escape_string($con, $_POST['test']);
-		//$username=$_POST['username'];
-		$username=$_POST['username'];
-		//echo $name.'<br/>'.$message.'<br/>'.$username;die();
-		$s3="SELECT * FROM seniors WHERE name='$name'";
-		$r3=mysqli_query($con, $s3);
-		$row=mysqli_fetch_array($r3);
-		$i=1;
-		while($i<=10)
-		{
-			$check='test'.$i;
-			if($row[$check]=='0')
-				break;
-			$i++;
-		}
-		$score = $row['score']+1;
-		$s4="UPDATE seniors SET test$i='$message', s$i='$username', score='$score' WHERE name='$name'";
-		//echo $s4;die();
-		mysqli_query($con, $s4);
-		header('location:test.php');
-}
+    <div class="clear"></div>
 
-//include('header.php');
-?>
 <div class="slider-wrap">
-	<div class="row">
-		<div class="wrapper">
+	<div class="row" style="margin: auto;">
+		<div class="16 columns">
+		<br/><br/><br/>
 			<div class="testimonials" >
 					<h2>Testimonials</h2>
 					<p class="bolder">
-									<form action="testimonial.php" method="POST" style="margin-top: 0px;padding-top:5px">
-											<label for="name">Our Very Own</label>
-											<?php
-												require_once('connect.php');
-												if(!empty($_POST['name']) && isset($_POST['name']))
-												{
-													$name=$_POST['name'];
-													echo '<input type="text" readonly="readonly" size="10" value="'.$name.'" name="name"/>';
-													$s2="SELECT * FROM seniors WHERE name='$name'";
-													$r2=mysqli_query($con, $s2);
-													$row=mysqli_fetch_array($r2);
-													if($row['place'])
-														echo '
-																	<label for="place">Belonging To</label>
-																	<input type="text" readonly="readonly" size="10" value="'.$row['place'].'" />';
-													if($row['dob'])																	
-														echo '
-																	<label for="dob">Born On</label>
-																	<input type="text" readonly="readonly" size="30" value="'.$row['dob'].'" />';
-													if($row['company'])																	
-														echo '
-																	<label for="company">Placed In</label>
-																	<input type="text" readonly="readonly" size="30" value="'.$row['company'].'" />';
-												}
-												else{
-													header('location:test.php');
-												}
-											?>	
-											<label for="test">Testimonial Message (Please don't exceed 5000 Characters OR Mail to us the Testimonial at aditya.purandare@outlook.com)</label>
-											<textarea rows="15" cols="30" required="required" name="test" id="test" maxlength="5000"  style="color:black;" tabindex="1" autofocus="autofocus">
-											</textarea>
-											<label for="username">Submitted by (We need your name for a surprise we are planning! Please Cooperate.)</label>
-											<input type="text" maxlength="30" size="20" required="required" tabindex="2" name="username" id="username"/>
-										<input type="submit" name="submit" value="Submit Testimonial"tabindex="3" />
-									</form>
+					<center>
+<div width="40%" style="float:left;padding: 0px 50px;" height="100%">
+<h3>Testimonial Target (Out of 10)</h3>
+<table style="width: 600px;text-align:center">
+		<tr>
+			<th>Name</th>
+			<th>Score</th>
+		</tr>
+		<tr>
+			<?php
+					require_once('connect.php');
+					$s6="SELECT * FROM seniors ORDER BY score DESC";
+					$r6=mysqli_query($con, $s6);
+					while($row=mysqli_fetch_array($r6))
+					{
+						echo '<tr>
+										<td>'.$row['name'].'</td>
+						        			<td>'.$row['score'].'</td>
+						        		</tr>';
+						        		$count++;
+					}
+			?>
+		</tr>
+</table>
+</div>
+
+</center>								</fieldset>
 					</p>
 
 			</div>
@@ -198,9 +164,7 @@ if(isset($_POST['name'])&&isset($_POST['test']) &&isset($_POST['username']) && (
 </div>
 
 <center>
-<p class="bold" style="color:red;">
-Developed by IT 6th Sem Students for our Beloved Seniors!
-</p>
-</center>
-</body>
-</html>
+<?php
+include('footer.php');
+ob_flush();
+?>
