@@ -157,6 +157,7 @@ while($row=mysqli_fetch_array($r1))
 										
 										?>	
 										<input type="submit" name="submit" value="Write A Testimonial"/>
+										<h6>For a Detailed Testimonial Scoresheet, CLICK HERE</h6>
 									</form>
 </div>
 <div width="40%" style="float:left">

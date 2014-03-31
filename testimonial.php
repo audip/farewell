@@ -183,7 +183,7 @@ if(isset($_POST['name'])&&isset($_POST['test']) &&isset($_POST['username']) && (
 													header('location:test.php');
 												}
 											?>	
-											<label for="test">Testimonial Message (Please don't exceed 5000 Characters OR Mail to us the Testimonial at aditya@eclectika.org)</label>
+											<label for="test">Testimonial Message (Please don't exceed 5000 Characters OR Mail to us the Testimonial at aditya.purandare@outlook.com)</label>
 											<textarea rows="15" cols="30" required="required" name="test" id="test" maxlength="5000"  style="color:black;" tabindex="1" autofocus="autofocus">
 											</textarea>
 											<label for="username">Submitted by (We need your name for a surprise we are planning! Please Cooperate.)</label>
