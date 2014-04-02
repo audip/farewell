@@ -131,7 +131,7 @@ Modal Section -Register -->
 					<p class="bolder">
 					<center>
 <div width="40%" style="float:left;padding: 0px 50px;" height="100%">
-<h3>Testimonial Target (Out of 10)</h3>
+<h3>Testimonial Target (Out of 15)</h3>
 <table style="width: 600px;text-align:center">
 		<tr>
 			<th>Name</th>

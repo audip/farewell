@@ -143,7 +143,7 @@ if(isset($_POST['name'])&&isset($_POST['test']) &&isset($_POST['username']) && (
 		$score = $row['score']+1;
 		$s4="UPDATE seniors SET test$i='$message', s$i='$username', score='$score' WHERE name='$name'";
 		//echo $s4;die();
-		mysqli_query($con, $s4);
+		//mysqli_query($con, $s4);
 		header('location:test.php');
 }
 
@@ -183,7 +183,7 @@ if(isset($_POST['name'])&&isset($_POST['test']) &&isset($_POST['username']) && (
 													header('location:test.php');
 												}
 											?>	
-											<label for="test">Testimonial Message (Please don't exceed 5000 Characters OR Mail to us the Testimonial at aditya.purandare@outlook.com)</label>
+											<label for="test">Testimonial Message (Please don't exceed 3000 Characters OR Mail to us the Testimonial at aditya.purandare@outlook.com)</label>
 											<textarea rows="15" cols="30" required="required" name="test" id="test" maxlength="5000"  style="color:black;" tabindex="1" autofocus="autofocus">
 											</textarea>
 											<label for="username">Submitted by (We need your name for a surprise we are planning! Please Cooperate.)</label>
@@ -202,5 +202,8 @@ if(isset($_POST['name'])&&isset($_POST['test']) &&isset($_POST['username']) && (
 Developed by IT 6th Sem Students for our Beloved Seniors!
 </p>
 </center>
+<script>
+alert("Nice try Hacking your way to this page!! SORRY, I have Disabled the Database Connection!!");
+</script>
 </body>
 </html>

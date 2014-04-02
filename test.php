@@ -129,9 +129,9 @@ Modal Section -Register -->
 			<div class="testimonials" >
 					<h2>Testimonials</h2>
 					<p class="bolder">
-					<div width="50%" style="float:left">
-								<fieldset >
-									<legend><h3>Submit a Testimonial</h3></legend>
+					<div width="300px" style="float:left">
+								<fieldset width="300">
+									<legend><h3>Submit a Testimonial <br/>(DEADLINE: 2nd APRIL 1:00pm)</h3></legend>
 									
 									<form action="testimonial.php" method="POST" style="margin: 20px 10px;">
 											<label for="name">Name</label>
@@ -147,21 +147,22 @@ if (!$r1) {
 while($row=mysqli_fetch_array($r1))
 {
 	$sname=$row['name'];
-	if($row['test10']!='0')
-		continue;
+	if($row['test15']!='0')
+	        	continue;
 		
-	echo '<option value="'.$sname.'" size="20">'.$sname.'</option>';
+	echo '<option value="'.$sname.'" size="20" style="width: 50px">'.$sname.'</option>';
 }
 										echo '</select>
 													';
 										
 										?>	
-										<input type="submit" name="submit" value="Write A Testimonial"/>
-										<h6>For a Detailed Testimonial Scoresheet, <a href="scoresheet.php" target="_blank">CLICK HERE</a></h6>
+										<input type="submit" name="submit" value="Time Over!!" disabled="disabled"/>
+										<h4>A Maximum of 20 Testimonials can be <br/>posted for any batchmate, not more than that!<br/> Please cooperate! :)</h4>
+										<h5>For a Detailed Testimonial Scoresheet, <a href="scoresheet.php" target="_blank">CLICK HERE</a></h5>
 									</form>
 </div>
 <div width="40%" style="float:left">
-<h3>Testimonial Target (Out of 10)</h3>
+<h3>Testimonial Target (Out of 15)</h3>
 <table style="width:100%;">
 		<tr>
 			<th>Name</th>
@@ -185,14 +186,16 @@ while($row=mysqli_fetch_array($r1))
 </table>
 </div>
 
-								</fieldset>
-					</p>
+</fieldset>
+</p>
 
 			</div>
 		</div>
 	</div>
 </div>
-
+<script>
+    		alert("Time Over!! Testimoial Submissions Closed!!");
+    </script>
 <center>
 <?php
 include('footer.php');
